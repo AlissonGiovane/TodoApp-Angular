@@ -1,0 +1,12 @@
+<div class="todos">
+    <form (submit)="addNaLista()">
+        <input type="text" name="inputTodo" placeholder="Coloque Sua Tarefa" class="todo-input"
+            [(ngModel)]="inputTodo" />
+        <input type="submit" value="Adicionar Tarefa" class="todo-submit" />
+    </form>
+    <div *ngFor="let todo of todos; let i = index;" class="todo {{ (todo.completado ? 'coloca' : '') }}">
+        <div class="id">{{ i }}</div>
+        <div class="content" (click)="ColocaNaTela(i)">{{ todo.content }}</div>
+        <button class="delete" (click)="removeTodo(i)">Remover</button>
+    </div>
+</div>
